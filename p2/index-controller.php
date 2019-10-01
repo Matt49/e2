@@ -1,14 +1,16 @@
 <?php
 
+//Throw options
 $moves = ['rock', 'paper', 'scissors'];
-//var_dump($moves);
+
+//Player's randomly generated throws
 $player1Move = $moves[rand(0,2)];
 $player2Move = $moves[rand(0,2)];
-//echo($player1Move);
-//echo($player2Move);
 
+//Comparison result variable
 $movesResult = null;
 
+//Conditional statements to compare throws accoring to game rules
 if ($player1Move == $player2Move) {
     $movesResult = 'It\'s a tie!'; 
 } elseif ($player1Move == 'rock' and $player2Move == 'paper') {
@@ -24,5 +26,3 @@ if ($player1Move == $player2Move) {
 } else {
     $movesResult = "Player two wins!";
 } 
-
-//echo($movesResult);
