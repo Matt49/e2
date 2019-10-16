@@ -39,13 +39,14 @@
 
         <div class="round">
                 <?php if ($showResult) { ?>
-
+                        <p>You threw <?php echo($outcome['player']);?><br>
+                        The computer threw <?php echo($outcome['computer']);?></p>
                         <?php if ($outcome['outcome'] == 'tie') { ?>
-                                <p>It's a tie! Try again.</p>
+                                <p><span class="announce">It's a tie! </span>Try again.</p>
                         <?php } elseif ($outcome['outcome'] == 'win') {?>
-                                <p>You win this round! Way to go.</p>
+                                <p><span class="announce">You win this round!</span> Way to go.</p>
                         <?php } else {?>
-                                <p>You lose this round.<br>
+                                <p class="announce">You lose this round.</p>
                         <?php } ?>
                 <?php } ?>
         </div>
@@ -54,13 +55,13 @@
                 <?php if ($showWinner) { ?>
 
                         <?php if ($matchWinner == 'you') { ?>
-                                <p>You are the Match Winner.<br>
+                                <p><span class="announce">You are the Match Winner.</span><br>
                                 The force is strong in you.</p>
                                 <p>Choose your next throw to play another match.</p> 
                         <?php } else {?>
-                                <p>You lose the match :( <br>
+                                <p><span class="announce">You lose the match :(</span><br>
                                 You still have much to learn young jedi.<br>
-                                Try again to start another match.</p>
+                                <span class="emphasis">Choose again to start another match.</span></p>
                         <?php } ?>
                 <?php } ?>
         </div>
