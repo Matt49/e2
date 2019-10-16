@@ -3,7 +3,7 @@
 <html lang='en'>
 
 <head>
-    <title>P2: Rock, Paper, Scissors</title>
+    <title>P3: Rock, Paper, Scissors</title>
     <meta charset='utf-8'>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -57,7 +57,7 @@
                         <?php if ($matchWinner == 'you') { ?>
                                 <p><span class="announce">You are the Match Winner.</span><br>
                                 The force is strong in you.</p>
-                                <p>Choose your next throw to play another match.</p> 
+                                <p class="emphasis">Choose your next throw to play another match.</p> 
                         <?php } else {?>
                                 <p><span class="announce">You lose the match :(</span><br>
                                 You still have much to learn young jedi.<br>
