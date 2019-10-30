@@ -4,15 +4,15 @@
 $moves = ['rock', 'paper', 'scissors'];
 
 //Player's randomly generated throws
-$player1Move = $moves[rand(0,2)];
-$player2Move = $moves[rand(0,2)];
+$player1Move = $moves[rand(0, 2)];
+$player2Move = $moves[rand(0, 2)];
 
 //Comparison result variable
 $movesResult = null;
 
 //Conditional statements to compare throws accoring to game rules
 if ($player1Move == $player2Move) {
-    $movesResult = 'It\'s a tie!'; 
+    $movesResult = 'It\'s a tie!';
 } elseif ($player1Move == 'rock' and $player2Move == 'paper') {
     $movesResult = 'Player two wins!';
 } elseif ($player1Move == 'rock' and $player2Move == 'scissors') {
@@ -25,4 +25,4 @@ if ($player1Move == $player2Move) {
     $movesResult = 'Player one wins!';
 } else {
     $movesResult = "Player two wins!";
-} 
+}
