@@ -9,26 +9,31 @@
 
 ### Are you able to produce any errors or unexpected results?
 
-The game functioned as it should. I could not get it to misfire in anyway. It would be an enhancement though to echo a corrective phrase when people enter a number less than or greater than the acceptable range. Right now nothing happens. This does not effect functionality, but usability would be enhanced with a corrective phrase. 
+The game functioned as it should. I could not get it to misfire in anyway. It would be an enhancement though to echo a corrective phrase when people enter a number less than or greater than the acceptable range. Right now nothing happens.
 
 
 ### Referencing the course notes on [Form design flow](https://hesweb.dev/e2/notes#/php/form-flow), describe the form design flow used in this project.
-This project uses Design Flow C with GET method. When a user submits the form, the data from the form and the browser is sent to the process file via the GET method. The data is acted upon by the logic of the code in the process file and the browser is redirected to the index file. The index file requires an index-controller file that uses logic to help display the new data on the index file.
+This project uses Design Flow C with GET method. When a user submits the form, the data from the form and the browser are sent to the process file via the GET method. The data is acted upon by the logic of the code in the process file and the browser is redirected to the index file. The index file requires an index-controller file that uses logic to help display the new data on the index file.
 
 
 ### Are there any separation of concern issues (i.e. non-display specific logic in view files, display code in controller files)? 
-I do think there could be less logic code in the index and index-controller file. Lines 88-93 in the index file are pretty efficient but in terms of separation of concerns the logic in them might best be in the index-controller file.
+I do think there could be less logic in the index and index-controller file. It's ok for ines 85-88 to be in the index file because the foreach loop is closely related to the display of the variables.
 ```
 <?php if (isset($directionArray) && $directionArray != null) { 
             foreach($guesses as $key => $value) {?>
             <li><?php echo "The guess was $value, the correct number is $directionArray[$key]."; ?></li>
         <?php }} 
+```
+
+Lines 89-93 though seem further from the display of the variables and should partially be in the controller.
+```
          if ($guess == $correctGuess && $guess != null) { ?>
             <li> You guessed the correct number in <?php echo $finalGuessAmount ?> rounds!</li>
             <li> A new number has been generated</li> 
             <li> Try to guess it in fewer rounds!</li>
         <?php } ?>
 ```
+
 I'm not sure why the $target is being checked by isset and then declared in lines 32-34 of the index-controller file. I would think it better to do this in the process file. Is there a reason to do it here?
 
 
@@ -43,9 +48,18 @@ The built-in PHP isset method is used extensively. This method checks to see if 
 __session_start__
 This function starts a new session or resumes an existing session which allows one to store a variable between page loads
 
+__array_push__
+This function pushes one of more elements onto the end of an array.
+
+__header__
+Sends a raw html header according to php.net. Redirects one to another web page in plain speak.
+
+__rand__
+Generates random integers. It takes minimum and maximum arguments, or parameters.
+
 
 ### Are there any parts of the code that you found interesting or taught you something new?
-Lines 28-48 in the process file are impressively effective. They collapse quite a bit of functionality into one "if, else" statement. I also like the use of the "for each" loop to say both the guess and whether the target number is higher or lower in lines 85-88 of the index file.
+Lines 28-48 in the process file are impressively effective. They collapse quite a bit of functionality into one "if else" statement. I also like the use of the "for each" loop to say both the guess and whether the target number is higher or lower in lines 85-88 of the index file.
 
 
 ### Are there any parts of the code that you don't understand?
