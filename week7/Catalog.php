@@ -3,15 +3,20 @@
 class Catalog
 {
     # Properties
-    public $products =[];
-
+    public $products = [];
+    
     # Methods
     public function __construct($dataSource)
     {
+        # Load the JSON string of data
         $json = file_get_contents($dataSource);
+        
+        # Convert the JSON string into an array
         $this->products = json_decode($json, true);
     }
+
     
+
     public function getAll()
     {
         return $this->products;
@@ -22,6 +27,7 @@ class Catalog
         return $this->products[$id];
     }
 
+
     public function searchByName(string $term)
     {
         $results = [];
@@ -30,6 +36,9 @@ class Catalog
             if (strstr($product['name'], $term)) {
                 $results[] = $product;
             }
+            //if ($product['name'] == $term) {
+            //    $results[] = $product;
+            //}
         }
         return $results;
     }

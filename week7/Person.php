@@ -7,10 +7,22 @@ class Person
     public $age;
 
     #Method
-    public function summary()
+    public function __construct(string $firstName, string $lastName, int $age)
     {
-        echo $this->firstName;
-        echo $this->lastName;
-        echo $this->age;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->age = $age;
+    }
+    public function getFullName()
+    {
+        return $this->firstName. ' ' . $this->lastName;
+    }
+    public function getClassification()
+    {
+        if ($this->age > 18) {
+            return 'Adult';
+        } else {
+            return 'Minor';
+        }
     }
 }
