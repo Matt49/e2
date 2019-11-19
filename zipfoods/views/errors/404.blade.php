@@ -1,15 +1,16 @@
-<!doctype html>
-<html lang='en'>
-<head>
+@extends('templates.master')
 
-	<title>404 Page Not Found</title>
-	<meta charset='utf-8'>
+@section('title')
+Product Not Found
+@endsection
 
-</head>
-<body>
+@section('content')
+<h2>Product {{ $id }} not found</h2>
+<?php //dump($id);
+?>
+<div id='product-index'>
+	<p>Uh oh - we were not able to find the product you were looking for.</p>
+	<a href='/products'>Please check out our other products...</a>
+</div>
 
-<h2>404 Page Not Found</h2>
-<a href='{{ $app->config('app.url') }}'>{{ $app->config('app.url') }}</a>
-	
-</body>
-</html>
+@endsection
